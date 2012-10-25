@@ -13,10 +13,12 @@
   // Declare Variables
   var _settings = {
 
-      doStuff : true
+        doStuff : true
 
-  },
-      _awesome = {};
+      },
+      _awesome =  function(){
+         // do awesome stuff (constructor function)
+      };
 
   // Private Methods
 
@@ -28,7 +30,12 @@
 
   // Setup Public Interface
 
-  _awesome.init = _Init;
+  _awesome.prototype.init = function( settings ) {
+
+     // call private method
+     _Init.call( this , settings );
+
+  }
 
   return _awesome;
 
